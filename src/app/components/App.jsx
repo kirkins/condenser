@@ -4,7 +4,7 @@ import AppPropTypes from 'app/utils/AppPropTypes';
 import Header from 'app/components/modules/Header';
 import * as userActions from 'app/redux/UserReducer';
 import TopRightMenu from 'app/components/modules/TopRightMenu';
-import { browserHistory } from 'react-router';
+import { browserHistory, Link } from 'react-router';
 import classNames from 'classnames';
 import SidePanel from 'app/components/modules/SidePanel';
 import CloseButton from 'react-foundation-components/lib/global/close-button';
@@ -248,26 +248,55 @@ class App extends React.Component {
         }
 
         let welcome_screen = null;
-        if (ip && new_visitor && this.state.showBanner) {
+        if (true) {
+            //if (ip && new_visitor && this.state.showBanner) {
             welcome_screen = (
                 <div className="welcomeWrapper">
                     <div className="welcomeBanner">
                         <CloseButton
                             onClick={() => this.setState({ showBanner: false })}
                         />
-                        <div className="text-center">
-                            <h2>{tt('navigation.intro_tagline')}</h2>
-                            <h4>{tt('navigation.intro_paragraph')}</h4>
-                            <br />
-                            <a
-                                className="button button--primary"
-                                href="/pick_account"
-                            >
-                                {' '}
-                                <b>{tt('navigation.sign_up')}</b>{' '}
-                            </a>
-                            {/* JSX Comment  &nbsp; &nbsp; &nbsp;
-                            <a className="button hollow uppercase" href="https://steem.io" target="_blank" rel="noopener noreferrer" onClick={this.learnMore}> <b>{tt('navigation.learn_more')}</b> </a> */}
+                        <div className="row">
+                            <div className="text-center welcomeImage small-12 show-for-small-only">
+                                <img
+                                    className="heroImage"
+                                    src={require('app/assets/images/welcome-hero.png')}
+                                />
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="large-1 show-for-large" />
+                            <div className="small-12 medium-6 large-5 welcomePitch">
+                                <h2>{tt('navigation.intro_tagline')}</h2>
+                                <h4>{tt('navigation.intro_paragraph')}</h4>
+                                <div className="row buttonWrapper">
+                                    <div className="small-6">
+                                        <Link
+                                            className="button button--primary"
+                                            to="/pick_account"
+                                        >
+                                            {' '}
+                                            <b>
+                                                {tt('navigation.sign_up')}
+                                            </b>{' '}
+                                        </Link>
+                                    </div>
+                                    <div className="small-6">
+                                        <Link
+                                            href="/faq.html"
+                                            className="button hollow"
+                                        >
+                                            <b>{tt('navigation.learn_more')}</b>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="text-center welcomeImage medium-6 large-5 show-for-medium">
+                                <img
+                                    className="heroImage"
+                                    src={require('app/assets/images/welcome-hero.png')}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
