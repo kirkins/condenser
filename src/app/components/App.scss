@@ -101,7 +101,7 @@
     text-decoration: none;
     font-weight: bold;
     transition: 0.2s all ease-in-out;
-    text-transform: capitalize;
+    text-transform: initial;
     border-radius: 0;
     font-size: 18px;
     background-color: $color-white;
@@ -123,7 +123,11 @@
     right: 0;
   }
   .button.hollow {
-    background-color: rgba(255,255,255,0.5);
+      background: none;
+      box-shadow: none;
+      color: $color-teal;
+      border: 1px solid $color-teal;
+
   }
 
     .heroImage {
